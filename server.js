@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 // Controllers for POSTs views
 require('./controllers/posts.js')(app);
+// Import the Post model
+const Post = require('../models/post');
 
 // use the body parser middleware
 app.use(bodyParser.json());
