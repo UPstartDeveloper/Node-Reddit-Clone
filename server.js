@@ -25,3 +25,6 @@ app.get('/', (req, res) => res.render('index'));
 // Handlebars middleware
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+// Set db
+require('./data/reddit-db');
