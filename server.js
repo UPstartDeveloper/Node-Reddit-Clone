@@ -7,12 +7,11 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 // Controllers for POSTs views
-require('./controllers/posts.js')(app);
+//require('./controllers/posts.js')(app);
+app.use('/', require('./controllers/posts'));
+//app.get('/posts/new', (req, res) => res.render('posts-new'));
 // Import the Post model
 const Post = require('./models/post');
-// Set db
-require('./data/reddit-db');
-
 // use the body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -29,3 +28,6 @@ app.get('/', (req, res) => res.render('index'));
 // Handlebars middleware
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+// Set db
+require('./data/reddit-db');
