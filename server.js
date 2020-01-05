@@ -9,7 +9,9 @@ const expressValidator = require('express-validator');
 // Controllers for POSTs views
 require('./controllers/posts.js')(app);
 // Import the Post model
-const Post = require('../models/post');
+const Post = require('./models/post');
+// Set db
+require('./data/reddit-db');
 
 // use the body parser middleware
 app.use(bodyParser.json());
@@ -27,6 +29,3 @@ app.get('/', (req, res) => res.render('index'));
 // Handlebars middleware
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-
-// Set db
-require('./data/reddit-db');

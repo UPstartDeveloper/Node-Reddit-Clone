@@ -4,6 +4,7 @@ module.exports = app => {
   };
 
 // CREATE a post (POST)
+const Post = require('../models/post');
 module.exports = (app) => {
    app.post('/posts/new', (req, res) => {
      // INSTANTIATE INSTANCE OF POST MODEL
