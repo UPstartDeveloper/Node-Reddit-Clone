@@ -1,3 +1,5 @@
+// Import the Post model
+const Post = require('./models/post');
 // Get a basic Hello world site up
 const express = require('express');
 const app = express();
@@ -6,12 +8,8 @@ const exphbs = require('express-handlebars');
 // import body parser and validator middleware
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-// Controllers for POSTs views
-//require('./controllers/posts.js')(app);
+// Controllers for Post views
 app.use('/', require('./controllers/posts'));
-//app.get('/posts/new', (req, res) => res.render('posts-new'));
-// Import the Post model
-const Post = require('./models/post');
 // use the body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

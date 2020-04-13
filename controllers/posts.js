@@ -8,7 +8,7 @@ const router = express.Router();
 // CREATE a post (POST)
 const Post = require('../models/post');
     router.post('/posts/new', (req, res) => {
-        // INSTANTIATE INSTANCE OF POST MODEL
+        // ADD INSTANCE OF POST MODEL
         const post = new Post(req.body);
         // SAVE INSTANCE OF POST MODEL TO DB
         post.save((err, post) => {
